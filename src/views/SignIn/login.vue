@@ -51,11 +51,10 @@ import $ from 'jquery';
             return Math.random() < 0.5 ? "#000000" : "#ffffff";
             },
             onComplete: () => {
-            console.log("complete");
             },
             onBegin: () => {
             this.$router.push({
-                path: '/imagewall',   
+                path: '/sevenimg',   
             }) 
             console.log("begin");
             },

@@ -1,16 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from "./store"
+import store from "./assets/js/store"
 
 
 Vue.config.productionTip = false
-
-// openlayers 的样式库
-import 'ol/ol.css';
-// ol-ext 的样式库
-import 'ol-ext/dist/ol-ext.min.css';
-
 
 // 加载 Element 配置
 import ElementUI from 'element-ui';
@@ -27,7 +21,6 @@ import FlatSurfaceShader from 'vue-flat-surface-shader'
 Vue.use(FlatSurfaceShader)
 
 Vue.config.productionTip = false;
-
 
 
 

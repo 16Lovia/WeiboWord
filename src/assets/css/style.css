@@ -1,0 +1,572 @@
+:root {
+    font-size: 15px;
+  }
+  @media (min-width: 550px) {
+    :root {
+      font-size: calc(10.2857142857px + 0.8571428571vw);
+    }
+  }
+  @media (min-width: 1600px) {
+    :root {
+      font-size: 24px;
+    }
+  }
+  
+  html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+  
+  body,
+  #app,
+  canvas,
+  #atmosphere,
+  #particles-js,
+  #content {
+    display: flex;
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+  }
+  
+  body {
+    background: #395e7f url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/106403/fearless-seven-bg.jpg) top center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  canvas {
+    z-index: -1;
+  }
+  
+  #app {
+    background: #395e7f url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/106403/fearless-seven-bg.jpg) top center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 1;
+  }
+  
+  #particles-js {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+  }
+  
+  #atmosphere {
+    background: radial-gradient(ellipse farthest-corner at 35% 25%, white, rgba(255, 255, 255, 0));
+    opacity: .4;
+    mix-blend-mode: overlay;
+    -webkit-animation: stormyskies 8s linear infinite;
+            animation: stormyskies 8s linear infinite;
+  }
+  
+  @-webkit-keyframes stormyskies {
+    0% {
+      opacity: 0.4;
+    }
+    5% {
+      opacity: 0.3;
+    }
+    10% {
+      opacity: 0.3;
+    }
+    15% {
+      opacity: 0.1;
+    }
+    20% {
+      opacity: 0.3;
+    }
+    25% {
+      opacity: 0.4;
+    }
+    30% {
+      opacity: 0.4;
+    }
+    35% {
+      opacity: 0.4;
+    }
+    40% {
+      opacity: 0.4;
+    }
+    45% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+    55% {
+      opacity: 0.4;
+    }
+    60% {
+      opacity: 0.1;
+    }
+    65% {
+      opacity: 0.2;
+    }
+    70% {
+      opacity: 0.3;
+    }
+    75% {
+      opacity: 0.3;
+    }
+    80% {
+      opacity: 0.3;
+    }
+    85% {
+      opacity: 0.1;
+    }
+    90% {
+      opacity: 0.1;
+    }
+    95% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+  
+  @keyframes stormyskies {
+    0% {
+      opacity: 0.4;
+    }
+    5% {
+      opacity: 0.3;
+    }
+    10% {
+      opacity: 0.3;
+    }
+    15% {
+      opacity: 0.1;
+    }
+    20% {
+      opacity: 0.3;
+    }
+    25% {
+      opacity: 0.4;
+    }
+    30% {
+      opacity: 0.4;
+    }
+    35% {
+      opacity: 0.4;
+    }
+    40% {
+      opacity: 0.4;
+    }
+    45% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+    55% {
+      opacity: 0.4;
+    }
+    60% {
+      opacity: 0.1;
+    }
+    65% {
+      opacity: 0.2;
+    }
+    70% {
+      opacity: 0.3;
+    }
+    75% {
+      opacity: 0.3;
+    }
+    80% {
+      opacity: 0.3;
+    }
+    85% {
+      opacity: 0.1;
+    }
+    90% {
+      opacity: 0.1;
+    }
+    95% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+  #logo {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: block;
+    fill: white;
+    width: 30vw;
+    min-width: 16rem;
+    height: auto;
+    mix-blend-mode: soft-light;
+  }
+  
+  #content {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  .the-seven {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+    flex-direction: row-reverse;
+  }
+  
+  .person {
+    flex-grow: 1;
+    position: relative;
+    transition: opacity 0.8s cubic-bezier(0.13, 0.88, 0.89, 1), flex 0.8s cubic-bezier(0.13, 0.88, 0.89, 1);
+    border: 1px solid transparent;
+    font-size: 1rem;
+  }
+  .person.person-hover {
+    flex-grow: 1.6;
+  }
+  .person.person-hover .person-caption {
+    opacity: 1;
+  }
+  .person.person-hover .person-caption h2 {
+    text-shadow: .25rem 0rem .5rem white;
+  }
+  .person a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+  
+  .person-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .person-caption {
+    position: absolute;
+    bottom: 2rem;
+    display: inline-block;
+    right: -1rem;
+    z-index: 100;
+    transition: opacity 0.8s cubic-bezier(0.13, 0.88, 0.89, 1);
+    opacity: .8;
+  }
+  .person-caption h2 {
+    font-size: 3rem;
+    font-weight: normal;
+    -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+    text-orientation: upright;
+    line-height: 0;
+    letter-spacing: -2.25rem;
+    color: #fffaee;
+    transition: text-shadow 0.8s cubic-bezier(0.13, 0.88, 0.89, 1);
+    text-shadow: 0rem 0rem 0rem rgba(255, 255, 255, 0);
+  }
+  
+  .person-show-enter-active {
+    transition: opacity 0.8s cubic-bezier(0.13, 0.88, 0.89, 1), flex 0.8s cubic-bezier(0.13, 0.88, 0.89, 1);
+    height: 100vh;
+  }
+  
+  .person-show-leave-active {
+    transition: opacity 0.6s cubic-bezier(0.48, 0.91, 0.27, 1), flex 0.6s cubic-bezier(0.48, 0.91, 0.27, 1);
+    height: 100vh;
+  }
+  
+  .person-show-enter, .person-show-leave-to {
+    opacity: 0;
+    flex-grow: 0 !important;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    font-family: 'IM Fell DW Pica SC', serif;
+    color: white;
+  }
+  
+  .person .image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: auto;
+    -webkit-mask: linear-gradient(to top right, transparent 25%, black 50%);
+            mask: linear-gradient(to top right, transparent 25%, black 50%);
+    transition: all .8s ease-in-out;
+    z-index: -20;
+  }
+  
+  #Snow a {
+    height: 23rem;
+  }
+  #Snow .image {
+    left: 42%;
+    height: 23em;
+  }
+  
+  #Mormont a {
+    height: 24rem;
+  }
+  #Mormont .image {
+    left: 60%;
+    height: 24em;
+  }
+  
+  #Tormund a {
+    height: 25rem;
+  }
+  #Tormund .image {
+    left: 65%;
+    height: 25em;
+  }
+  
+  #Clegane a {
+    height: 25rem;
+  }
+  #Clegane .image {
+    left: 40%;
+    height: 25em;
+  }
+  
+  #Dondarrion a {
+    height: 24rem;
+  }
+  #Dondarrion .image {
+    left: 68%;
+    height: 24em;
+  }
+  
+  #Thoros a {
+    height: 23.5rem;
+  }
+  #Thoros .image {
+    left: 55%;
+    height: 23.5em;
+  }
+  
+  #Gendry a {
+    height: 23rem;
+  }
+  #Gendry .image {
+    left: 58%;
+    height: 23em;
+  }
+  
+  .person-expanded {
+    min-height: 100%;
+  }
+  .person-expanded .image {
+    position: fixed;
+    bottom: 0;
+    height: 80vh !important;
+    left: 100% !important;
+    -webkit-transform: translateX(-80%) translateZ(1px);
+            transform: translateX(-80%) translateZ(1px);
+  }
+  .person-expanded a {
+    color: white;
+    font-family: 'IM Fell DW Pica SC', serif;
+    text-decoration: none;
+    position: absolute;
+    font-size: 1.5rem;
+    top: 2rem;
+    left: initial !important;
+    right: 2rem;
+    height: auto !important;
+    display: inline-block;
+    width: auto;
+    bottom: initial !important;
+    -webkit-animation: name-reveal 2s ease-in-out forwards;
+            animation: name-reveal 2s ease-in-out forwards;
+    opacity: 0;
+    -webkit-animation-delay: 1.2s;
+            animation-delay: 1.2s;
+  }
+  .person-expanded.person-hover .person-caption {
+    opacity: 0;
+  }
+  
+  .content {
+    left: 0;
+    width: 70vw;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .person-title {
+    min-width: 60%;
+    margin-left: auto;
+    padding: 2rem;
+  }
+  .person-title h1,
+  .person-title h2,
+  .person-title p {
+    -webkit-transform: translate3d(2rem, 0, 0);
+            transform: translate3d(2rem, 0, 0);
+    -webkit-animation: name-reveal 2s ease-in-out forwards;
+            animation: name-reveal 2s ease-in-out forwards;
+    opacity: 0;
+  }
+  .person-title h1 {
+    font-size: 4rem;
+    margin: 0;
+  }
+  .person-title h2 {
+    font-size: 2rem;
+    -webkit-animation-delay: .3s;
+            animation-delay: .3s;
+    margin: 0 0 0 3rem;
+  }
+  .person-title p {
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+    color: white;
+    width: 55vw;
+    line-height: 1.6;
+    font-size: 1.4rem;
+    text-align: center;
+    font-family: 'IM Fell English', serif;
+  }
+  
+  @-webkit-keyframes name-reveal {
+    0% {
+      -webkit-transform: translate3d(2rem, 0, 0);
+              transform: translate3d(2rem, 0, 0);
+      opacity: 0;
+      -webkit-filter: blur(2rem);
+              filter: blur(2rem);
+    }
+    100% {
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+      opacity: 1;
+      -webkit-filter: blur(0rem);
+              filter: blur(0rem);
+    }
+  }
+  
+  @keyframes name-reveal {
+    0% {
+      -webkit-transform: translate3d(2rem, 0, 0);
+              transform: translate3d(2rem, 0, 0);
+      opacity: 0;
+      -webkit-filter: blur(2rem);
+              filter: blur(2rem);
+    }
+    100% {
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+      opacity: 1;
+      -webkit-filter: blur(0rem);
+              filter: blur(0rem);
+    }
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .4s ease-in-out;
+    opacity: 1;
+  }
+  
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+  
+  @media (max-width: 550px) {
+    .the-seven {
+      left: 0;
+      padding-top: 10rem;
+      flex-wrap: wrap-reverse;
+      justify-content: space-between;
+      align-content: space-between;
+      overflow-x: hidden;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  
+    .person {
+      font-size: .75rem;
+      height: 10rem;
+      border: none;
+      margin-right: 50%;
+      width: 50%;
+      flex-grow: 0;
+    }
+    .person a {
+      height: 100% !important;
+    }
+  
+    .image {
+      -webkit-mask: linear-gradient(to top, transparent, black 50%) !important;
+              mask: linear-gradient(to top, transparent, black 50%) !important;
+    }
+  
+    .person-caption {
+      left: .5rem;
+    }
+    .person-caption h2 {
+      text-orientation: initial;
+      -webkit-writing-mode: initial;
+          -ms-writing-mode: initial;
+              writing-mode: initial;
+      letter-spacing: -.2rem;
+    }
+  
+    .person:nth-child(2n) {
+      margin-right: 0;
+      margin-left: 50%;
+    }
+    .person:nth-child(2n) .person-caption {
+      left: initial;
+      right: 0.8rem;
+    }
+  
+    #logo {
+      min-width: 10rem;
+      top: 1rem;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+    }
+  
+    .person-expanded {
+      position: initial;
+      width: 100%;
+    }
+    .person-expanded .image {
+      position: absolute;
+      height: 40vh !important;
+      bottom: initial;
+      top: .5rem;
+      left: 50% !important;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+    }
+    .person-expanded .content {
+      padding-top: 40vh;
+      width: 100%;
+    }
+    .person-expanded p {
+      width: 100%;
+    }
+  }

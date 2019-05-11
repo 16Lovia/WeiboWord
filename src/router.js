@@ -20,6 +20,10 @@ export default new Router({
       path: '/imagewall',
       name: '',
       component: () => import('./views/SignIn/ImageWall.vue')
+    },{
+      path: '/sevenimg',
+      name: '',
+      component: () => import('./views/SignIn/SevenImg.vue')
     }
     // 网站架构
     // {
