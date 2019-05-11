@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
+import router from './router'
+import store from "./store"
+
 
 Vue.config.productionTip = false
 
@@ -16,7 +19,20 @@ Vue.use(ElementUI, {
   size: 'small'
 });
 
+//粒子背景效果
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
+//折射背景效果
+import FlatSurfaceShader from 'vue-flat-surface-shader'
+Vue.use(FlatSurfaceShader)
+
+Vue.config.productionTip = false;
+
+
+
 
 new Vue({
+  router,
+  store,
   render: h => h(App),
 }).$mount('#app')
