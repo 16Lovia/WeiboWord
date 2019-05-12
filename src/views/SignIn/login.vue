@@ -3,15 +3,13 @@
         <flat-surface-shader class="shader" type="webgl" :light="{ambient: '#22bc9e', diffuse: '#2b7c6b'}">
         </flat-surface-shader>
             <div class="mask">
-            <div class="title">
-                HOW WORDS WORK
-            </div>
-            <div class="subtitle">
-                An Exploration of Weibo Data
-            </div>
-
-            <lottie class="lottie" :options="defaultOptions" :height="400" :width="400" v-on:animCreated="handleAnimation"/>
-
+            <transition class="fade" mode="out-in" enter-active-class="fadeIn" leave-active-class="fadeIn"> 
+              <div id="content" v-if="show">
+                  <div class="title">HOW WORDS WORK</div> 
+                  <div class="subtitle">An Exploration of Weibo Data </div>
+               </div>    
+             </transition>
+              <lottie class="lottie" :options="defaultOptions" :height="400" :width="400" v-on:animCreated="handleAnimation" v-if="show"/>
             <ParticleEffectButton class="pebtn"
             :visible.sync="btnOps.visible"
             :animating.sync="btnOps.animating"
@@ -20,6 +18,7 @@
             >
             GO
             </ParticleEffectButton>
+
         </div>
     
   </div>
@@ -34,13 +33,13 @@ import $ from 'jquery';
     name: 'app',
     components: {
       'lottie': Lottie,
-       ParticleEffectButton
+       ParticleEffectButton,
     },
     data() {
       return {
         defaultOptions: {animationData: animationData.default},
         animationSpeed: 1,
-
+        show: true,
         btnOps: {
             type: "triangle",
             easing: "easeOutQuart",
@@ -53,10 +52,12 @@ import $ from 'jquery';
             onComplete: () => {
             },
             onBegin: () => {
+
             this.$router.push({
-                path: '/sevenimg',   
+                path: '/tree',   
             }) 
-            console.log("begin");
+             this.show=false;
+
             },
             visible: true,
             animating: false
@@ -110,6 +111,8 @@ align-items: center;
 flex-direction: column;
 color: rgba(255, 255, 255,0.9);
 z-index: 0;
+
+
 }
 .title {
 font-size: 7em;
@@ -148,5 +151,8 @@ z-index: 2;
 }
 .vue-particle-effect-button .particles-button {
 background: #e6a13dd9;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1.5s;
 }
 </style>

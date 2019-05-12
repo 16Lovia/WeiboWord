@@ -22,6 +22,10 @@ Vue.use(FlatSurfaceShader)
 
 Vue.config.productionTip = false;
 
+// // openlayers 的样式库
+// import 'ol/ol.css';
+// // ol-ext 的样式库
+// import 'ol-ext/dist/ol-ext.min.css';
 
 
 new Vue({

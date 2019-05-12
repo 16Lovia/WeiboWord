@@ -7,7 +7,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/test'
+      redirect: '/login'
     },{
       path: '/test',
       name: '测试界面',
@@ -24,6 +24,14 @@ export default new Router({
       path: '/sevenimg',
       name: '',
       component: () => import('./views/SignIn/SevenImg.vue')
+    },{
+      path: '/tree',
+      name: '',
+      component: () => import('./views/d3Tree/tree3.vue')
+    },{
+      path: '/dashboard',
+      name: '',
+      component: () => import('./views/Home/Dashboard.vue')
     }
     // 网站架构
     // {

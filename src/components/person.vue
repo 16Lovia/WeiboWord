@@ -2,7 +2,8 @@
 <transition name="person-show">
     <li v-if="show" class="person" :id="caption" :class="{'person-expanded' : expanded, 'person-hover' : hover}">
         <div class="person-content">
-        <transition name="fade">
+          <el-scrollbar>
+          <transition name="fade">
             <div class="person-caption" v-if="!expanded">
             <h2>{{ caption }}</h2>
             </div>
@@ -15,11 +16,10 @@
                 <h2>{{ person.alias }}</h2>
                 <p>{{ person.bio }}</p>
                 <p v-if="person.bioextended">{{ person.bioextended }}</p>
-            </div>
-            
+              </div>          
             </div>
         </transition>
-        
+        </el-scrollbar>
             <a href="#"
                 v-if="expanded"
                 @click.prevent="expand(person)">X Close</a>
@@ -90,3 +90,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.el-scrollbar{
+  height: 100%;
+}
+.el-scrollbar__wrap{
+  overflow: scroll;
+  overflow-x:auto
+}
+</style>
