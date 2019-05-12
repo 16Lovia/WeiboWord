@@ -1,58 +1,33 @@
 <template lang="html">
-<div>
+<div id="main">
   <vue-particles  class="particles-js" color="#dedede"></vue-particles>
   <div class="dashboard">
     <div class="flex-container column">
         <div class="item one"  @click="clickChart('1')" style="transform: translate(-22.4%,-33.5%) scale(0.33)">
-          <div>
-            <turnCard></turnCard>
-            <div class="bottom-btn">
-              <el-button class="next-btn" type="primary" size="medium">换一道<i class="el-icon-refresh el-icon--left"></i></el-button>
-              <el-button class="more-btn" type="primary" size="medium">探索更多<i class="el-icon-arrow-right el-icon--right"></i></el-button>
-            </div>
-          </div>
         </div>
         <div class="item two" @click="clickChart('2')" style="transform: translate(-22.4%,0.5%) scale(0.33)">
-          <ListPage></ListPage>
         </div>
         <div class="item three" @click="clickChart('3')" style="transform: translate(-22.4%,34.5%) scale(0.33)">
-          <div class="three_content" >
-               <!-- {{point_data}} -->
-          </div>
         </div>
         <div class="item four active" @click="clickChart('4')" style="transform: translate(43.7%, 0) scale(1)">
-          <!-- <main-map :point_data="point_data">  
-          </main-map> -->
         </div>
-        <!-- <main-map class="item active" @click="clickChart('4')" style="transform: translate(43.7%, 0) scale(1)"></main-map> -->
     </div>
   </div>
 </div>
 </template>
 
 <script>
-// import MainMap from './MainMap.vue';
 import $ from 'jquery';
 import bus from '../../components/bus.js';
-import turnCard from '../../components/turnCard.vue'
-import ListPage from './ListPage.vue';
 
 export default {
   components: {
-    // MainMap,
-    turnCard,
-    ListPage,
   },
   props:{
-    // point_data:{
-    //   type:String,
-    //   required: true
-    // }
   },
   data() {
     return {
       items: [],
-      tips:[],
     }
   },
   methods: {
@@ -86,8 +61,6 @@ export default {
     },
   }, // methods
   created() {
-    console.log(window.innerHeight * 0.9);
-
     bus.$on('dashboardResize', event => {
       // TODO
     });
@@ -98,7 +71,6 @@ export default {
     this.init()
   }, // mounted
 }
-
 </script>
 
 <style lang="stylus" scoped>
@@ -191,5 +163,14 @@ export default {
     background: #e6a23c;
     border-color: #e6a23c;
     color: #FFF;
-
+#main
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
 </style>
