@@ -29,9 +29,9 @@ export default new Router({
       name: '',
       component: () => import('./views/d3Tree/tree3.vue')
     },{
-      path: '/dashboard',
+      path: '/tree3_0',
       name: '',
-      component: () => import('./views/Home/Dashboard.vue')
+      component: () => import('./views/d3Tree/tree3_0.vue')
     }
     // 网站架构
     // {

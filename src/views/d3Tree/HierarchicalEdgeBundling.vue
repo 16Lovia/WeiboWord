@@ -148,6 +148,7 @@ export default {
       })
 
       newNodes.append('text').attr('dy', '.35em')
+      newNodes.append('circle').attr('r','.30em').style('fill','#a75cdadb')
 
       const text = allNodes.select('text')
         .text(d => d.data[this.nodeText])
@@ -160,10 +161,20 @@ export default {
         })
         .attr('dx', d => d.textInfo.standardDx)
         .attr('transform', d => `rotate(${d.textInfo.rotate})`)
+      
+      const circle =allNodes.select('circle')
+        .attr('r', d => d._id*0.1)
+        .style('fill','#a75cdadb')
+
+
+      // circle.transition()
+      //  .duration(20)
+      //  .attr('r','.45em')
+      //  .style('fill','red')
 
       const tentative = []
       text.each(function (d) { tentative.push({ node: this, data: d, pos: transformNode(d.x, this.getComputedTextLength() + 6) }) })
-
+      
       const getMaxNode = (position) => {
         const mapped1 = tentative.map(el => ({ node: el.node, x: el.data.x, value: Math.abs(el.pos[position]) }))
         const max = Math.max(...mapped1.map(el => el.value))
@@ -196,6 +207,7 @@ export default {
 
       const newEdges = edges.enter().append('path').attr('class', 'link')
                             .attr('d', d => roundPath(line(d.source.path(d.target).map(p => ({x: p.x, y: 0.1})))))
+                            
 
       const allEdges = this.internaldata.edges = edges.merge(newEdges)
       const promise = toPromise(allEdges.transition().duration(this.duration).attr('d', d => roundPath(line(d.source.path(d.target)))))
@@ -243,6 +255,7 @@ export default {
         }
       })
       .raise()
+      .attr('stroke-width',l => l.source._id.toString()+'px')
 
       const nodesSelected = nodes.filter(n => ((n.target) || (n.source) || (n === d)))
         .classed('node--target', n => n.target)
@@ -255,6 +268,8 @@ export default {
           d.textInfo.zoomedDx = anchorTodx(d.textInfo.anchor, this)
         }
       }).attr('dx', d => d.textInfo.zoomedDx)
+
+      
     },
 
     reset (d) {
@@ -266,6 +281,10 @@ export default {
 
       edges.classed('link--target', false)
           .classed('link--source', false)
+             .attr('stroke-width','1.5px')
+
+
+      
 
       nodes.classed('node--target', false)
           .classed('node--source', false)
@@ -377,8 +396,9 @@ export default {
   fill: none;
   stroke: #ffffff;
   stroke-opacity: 0.2;
-  stroke-width: 1.5px;
   transition: stroke 0.5s, stroke-opacity 0.5s;
+  /* stroke-width: 1.5px; */
+
 }
 
 .graph.detailed .link.link--source,
@@ -392,6 +412,7 @@ export default {
 
 .graph .link.link--source {
   stroke: #f8ad3d;
+  stroke-opacity: 0.1;
 }
 
 .graph .link.link--target {

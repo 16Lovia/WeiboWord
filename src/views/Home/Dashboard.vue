@@ -32,9 +32,6 @@ export default {
   },
   methods: {
     _resize() {
-      this.$root.charts.forEach((myChart) => {
-        myChart.resize()
-      })
     },
     init() {
       this.items = document.querySelectorAll('.flex-container .item')
@@ -61,6 +58,7 @@ export default {
     },
   }, // methods
   created() {
+
     bus.$on('dashboardResize', event => {
       // TODO
     });
@@ -68,9 +66,9 @@ export default {
     
   }, // created
   mounted() {
-    this.init()
   }, // mounted
 }
+
 </script>
 
 <style lang="stylus" scoped>

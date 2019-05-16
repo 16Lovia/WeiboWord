@@ -52,7 +52,6 @@ import $ from 'jquery';
             onComplete: () => {
             },
             onBegin: () => {
-
             this.$router.push({
                 path: '/tree',   
             }) 

@@ -1,13 +1,9 @@
 <template>
-     <div class="panel panel-default">
-        <div class="panel-heading">Events</div>
-
-        <div class="panel-body log">
+        <el-card class="log">
           <div v-for="(event,index) in events" :key="index">
             <p><b>Name:</b> {{event.eventName}} <b>Data:</b>{{event.data.text}}</p>
           </div>
-        </div>
-    </div>
+        </el-card>
 </template>
 <script>
 export default {
@@ -22,10 +18,9 @@ export default {
 
 <style>
 .log  {
-  height: 500px;
-  overflow-x: auto;
-  overflow-y: auto;
-  overflow: auto;
+  position: absolute;
+  height: auto;
   text-align: left;
+  right: 10em;
 }
 </style>
